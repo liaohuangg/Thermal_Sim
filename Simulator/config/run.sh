@@ -2,7 +2,7 @@
 
 # Remove results from previous simulatiosn
 rm -f gcc.init
-rm -f outputs/*
+rm -rf outputs
 
 # Create outputs directory if it doesn't exist
 mkdir outputs
@@ -14,11 +14,11 @@ mkdir outputs
 # the set of commands to  redo the thermal simulation from `example1`
 # using the grid model would be:
 # ../../HotSpot/hotspot
-/root/Experiment/AutoDesign/HotSpot/hotspot -c example.config -f ev6.flp -p gcc.ptrace -materials_file example.materials -model_type grid -steady_file outputs/gcc.steady -grid_steady_file outputs/gcc.grid.steady
+/root/Experiment/Thermal_Sim/HotSpot/hotspot -c example.config -f ev6.flp -p gcc.ptrace -materials_file example.materials -model_type grid -steady_file outputs/gcc.steady -grid_steady_file outputs/gcc.grid.steady
 
 cp outputs/gcc.steady gcc.init
 
-/root/Experiment/AutoDesign/HotSpot/hotspot -c example.config -init_file gcc.init -f ev6.flp -p gcc.ptrace -materials_file example.materials -model_type grid -o outputs/gcc.ttrace -grid_transient_file outputs/gcc.grid.ttrace
+/root/Experiment/Thermal_Sim/HotSpot/hotspot -c example.config -init_file gcc.init -f ev6.flp -p gcc.ptrace -materials_file example.materials -model_type grid -o outputs/gcc.ttrace -grid_transient_file outputs/gcc.grid.ttrace
 
 # The trade-off between speed and accuracy of the grid model can be
 # controlled by specifying the grid model's resolution through the
@@ -39,9 +39,9 @@ cp outputs/gcc.steady gcc.init
 # viewing. Note that we need to first split gcc.grid.steady into layer-specific temperature
 # files. Although we've only given a single layer to be simulated, HotSpot is also simulating
 # the Thermal Interface Material (TIM), heat spreader, and heat sink as separate layers
-/root/Experiment/AutoDesign/HotSpot/scripts/split_grid_steady.py outputs/gcc.grid.steady 4 64 64
-/root/Experiment/AutoDesign/HotSpot/scripts/grid_thermal_map.pl ev6.flp outputs/gcc_layer0.grid.steady > outputs/gcc.svg
-/root/Experiment/AutoDesign/HotSpot/scripts/grid_thermal_map.py ev6.flp outputs/gcc_layer0.grid.steady outputs/gcc.png
+/root/Experiment/Thermal_Sim/HotSpot/scripts/split_grid_steady.py outputs/gcc.grid.steady 4 64 64
+/root/Experiment/Thermal_Sim/HotSpot/scripts/grid_thermal_map.pl ev6.flp outputs/gcc_layer0.grid.steady > outputs/gcc.svg
+/root/Experiment/Thermal_Sim/HotSpot/scripts/grid_thermal_map.py ev6.flp outputs/gcc_layer0.grid.steady outputs/gcc.png
 
 # HotSpot also provides the `-grid_transient_file <file>` option to view
 # transient grid temperatures

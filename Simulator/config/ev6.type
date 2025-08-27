@@ -1,4 +1,31 @@
-L2 memory
-IntMap process
-IntQ process
-IntReg_0 memory
+CompChip_00  process
+CompChip_01  process
+CompChip_02  process
+CompChip_03  process
+CompChip_10  process
+CompChip_11  process
+CompChip_12  process
+CompChip_13  process
+CompChip_20  process
+CompChip_21  process
+CompChip_22  process
+CompChip_23  process
+CompChip_30  process
+CompChip_31  process
+CompChip_32  process
+CompChip_33  process
+
+# 4 个 DRAM（左右各 2 个）
+DRAM_LeftTop   memory
+DRAM_LeftBottom memory
+DRAM_RightTop  memory
+DRAM_RightBottom memory
+
+# 4 个 IO 芯片（与 DRAM 连接，分布在左右两侧）
+IO_LeftTop    memory
+IO_LeftBottom memory
+IO_RightTop   memory
+IO_RightBottom memory
+
+# 控制单元（示例，可扩展）
+ControlUnit   process

@@ -1,0 +1,4 @@
+Iteration,Temperature,LayoutFile,ThermalImage,Acceptance,Time
+0,321.88,ev6.flp,results_20250827_033243/iteration_000/outputs/gcc.png,True,577.3144714832306
+1,322.68,iteration_001/ev6.flp,results_20250827_033243/iteration_001/outputs/gcc.png,True,577.2392947673798
+2,322.7,iteration_002/ev6.flp,results_20250827_033243/iteration_002/outputs/gcc.png,True,577.6204679012299

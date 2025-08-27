@@ -7,4 +7,4 @@ export EXAMPLE_MATERIALS="/root/Experiment/Thermal_Sim/Simulator/config/example.
 export EV6_FLP="/root/Experiment/Thermal_Sim/Simulator/config/ev6.flp"
 export EV6_TYPE="/root/Experiment/Thermal_Sim/Simulator/config/ev6.type"
 
-# python optimize.py > /root/Experiment/Thermal_Sim/output/log.log 2>&1
+# python simula.py > /root/Experiment/Thermal_Sim/Simulator/config/log.log 2>&1
